@@ -11,7 +11,7 @@
   >
     <el-form  label-width="80px">
         <el-form-item label="主题颜色">
-          <el-color-picker v-model="color" show-alpha :predefine="predefineColors" />
+          <el-color-picker v-model="color" show-alpha :predefine="predefineColors"  @change="setColor"/>
         </el-form-item>
         <el-form-item label="暗黑模式">
            <el-switch size="small" active-text="Open" inactive-text="Close" v-model="dark" @change="changeDark"/>
@@ -50,7 +50,7 @@
 import {Refresh,FullScreen,Setting } from '@element-plus/icons-vue'
 import useLayoutStore from '../../../store/setting'
 import { useRouter } from 'vue-router'
-import { ref } from 'vue'
+import { ref ,nextTick} from 'vue'
 
 // import { reqLogout } from '../../../api/user/index'
 
@@ -109,9 +109,7 @@ let changeDark=()=>{
   // console.log(html);
   //判断HTML标签是否有dark这一个类名
   dark.value?html.className='dark':html.className=''
-  
-
-}
+  }
 // 颜色组件
 const color = ref('rgba(255, 69, 0, 0.68)')
 const predefineColors = ref([
@@ -130,6 +128,22 @@ const predefineColors = ref([
   'hsla(209, 100%, 56%, 0.73)',
   '#c7158577',
 ])
+
+
+import {BgcColor} from '../../../utils/color'
+
+//颜色选择器的颜色发生变化
+let setColor=()=>{
+  nextTick(()=>{
+    BgcColor(color.value)
+  })
+  
+  //通过改变js的根节点样式对象的属性和属性值
+  // const html=document.documentElement
+  // // getComputedStyle(html).getPropertyValue(`--el-color-primary`)
+  // html.style.setProperty('--el-color-primary',res)
+}
+
 
 </script>
 
