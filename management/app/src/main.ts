@@ -53,7 +53,8 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 }
 
 
-
+import {BgcColor} from './utils/color'
+BgcColor()
 
 // console.log(import.meta.env);//开发环境
 //svg插件需要配置代码

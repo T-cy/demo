@@ -37,6 +37,9 @@ let userStore=useUserStore()
           //万一刷新的时候是异步路由，有可能获取用户信息，异步路由没有加载完毕
           // console.log(11111111111,to);
           //继续当前的导航，不做任何改变
+          // if(to.path=='/:pathMatch(.*)*'){
+          //   return '/404'
+          // }
           return ({...to})
           //  return true 
           

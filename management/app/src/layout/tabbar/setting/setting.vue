@@ -130,13 +130,15 @@ const predefineColors = ref([
 ])
 
 
-import {BgcColor} from '../../../utils/color'
+import {SetBgcColor,BgcColor} from '../../../utils/color'
 
 //颜色选择器的颜色发生变化
 let setColor=()=>{
-  nextTick(()=>{
-    BgcColor(color.value)
-  })
+  // nextTick(()=>{
+    SetBgcColor(color.value)
+    // localStorage.setItem('LocalColor',color.value)
+    BgcColor()
+  // })
   
   //通过改变js的根节点样式对象的属性和属性值
   // const html=document.documentElement

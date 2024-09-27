@@ -11,8 +11,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "dayjs": "^1.11.13",
+    "echarts": "^5.5.1",
+    "echarts-liquidfill": "^3.1.0",
     "install": "^0.13.0",
     "lodash": "^4.17.21",
+    "monent": "^0.0.2-security",
     "nprogress": "^0.2.0",
     "pinia": "^2.2.2",
     "progress": "^2.0.3",
